@@ -27,6 +27,7 @@ const Weather = ({ setWeather, weather }) => {
 
   return (
     <Section>
+      <div className="loading"></div>
       <div className="weather">
         <span className="condition">{condition}</span>
         <span className="temperature">

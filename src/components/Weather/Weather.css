@@ -1,3 +1,84 @@
-.weather {
+.weather,
+.loading {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 40px 0px;
+  width: 100%;
+  height: 180px;
+  position: relative;
+  z-index: 2;
+  gap: 30px;
+}
+
+.loading:before {
+  content: "";
   display: block;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  border-left: 5px solid #fff;
+  border-top: 5px solid #fff;
+  border-right: 5px solid rgba(0, 0, 0, 0);
+  border-bottom: 5px solid rgba(0, 0, 0, 0);
+  animation: rotate 0.3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.temperature {
+  display: block;
+  color: #fff;
+  font-size: 70px;
+  line-height: 1;
+  text-align: left;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px #494949;
+}
+
+.condition {
+  display: flex;
+  width: 110px;
+  height: 110px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 110px;
+  font-family: "Noto Color Emoji", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*MOBIL VERSION*/
+@media screen and (max-width: 767px) {
+  .weather,
+  .loading {
+    height: 100px;
+    gap: 20px;
+  }
+
+  .loading:before {
+    width: 60px;
+    height: 60px;
+  }
+  .temperature {
+    font-size: 60px;
+  }
+
+  .condition {
+    width: 90px;
+    height: 90px;
+    font-size: 90px;
+  }
 }
