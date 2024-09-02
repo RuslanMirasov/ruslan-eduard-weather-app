@@ -10,31 +10,35 @@ const List = ({ onDeleteActivity, isGoodWeather }) => {
   return (
     <Section>
       <div className="list-wrapper">
-        <h2 className="list-title">
-          <span>🤵🏻</span>
-          {isGoodWeather === false ? (
-            <p>
-              Bad weather outside! <br />
-              Here is what you can do now:
-            </p>
-          ) : (
-            <p>
-              The weather is awesome! <br />
-              Go outside and:
-            </p>
-          )}
-        </h2>
-        <ul className="list">
-          {filteredActivities.map((activity) => (
-            <li key={activity.id} className="list__item">
-              <p>{activity.name}</p>
-              <ButtonDelete
-                onDeleteActivity={onDeleteActivity}
-                id={activity.id}
-              />
-            </li>
-          ))}
-        </ul>
+        {filteredActivities.length > 0 ? (
+          <>
+            {" "}
+            <h2 className="list-title">
+              <span>🤵🏻</span>
+              {isGoodWeather === false ? (
+                <p>
+                  Bad weather outside! <br />
+                  Here is what you can do now:
+                </p>
+              ) : (
+                <p>
+                  The weather is awesome! <br />
+                  Go outside and:
+                </p>
+              )}
+            </h2>
+            <ul className="list">
+              {filteredActivities.map(({ id, name }) => (
+                <li key={id} className="list__item">
+                  <p>{name}</p>
+                  <ButtonDelete onDeleteActivity={onDeleteActivity} id={id} />
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <p>Empty</p>
+        )}
       </div>
     </Section>
   );
