@@ -59,7 +59,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 20px;
-  background: #2f8dab;
+  background: #5c9db7;
   color: #fff;
   border-radius: 20px;
   width: 100%;
@@ -98,6 +98,9 @@
   width: calc(100% - 50px);
   position: relative;
   font-size: 22px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /*MOBIL VERSION*/
