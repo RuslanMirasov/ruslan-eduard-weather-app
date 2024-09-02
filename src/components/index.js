@@ -8,3 +8,4 @@ export { default as Weather } from "./Weather/Weather";
 export { default as ButtonSubmit } from "./Buttons/ButtonSubmit/ButtonSubmit";
 export { default as ButtonDelete } from "./Buttons/ButtonDelete/ButtonDelete";
 export { default as Tabs } from "./Tabs/Tabs";
+export { default as EmptyActivities } from "./Masseges/EmptyActivities/EmptyActivities";

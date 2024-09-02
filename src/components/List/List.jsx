@@ -1,4 +1,4 @@
-import { Section, ButtonDelete } from "../";
+import { Section, ButtonDelete, EmptyActivities } from "../";
 import "./List.css";
 
 const List = ({ onDeleteActivity, isGoodWeather }) => {
@@ -12,18 +12,17 @@ const List = ({ onDeleteActivity, isGoodWeather }) => {
       <div className="list-wrapper">
         {filteredActivities.length > 0 ? (
           <>
-            {" "}
             <h2 className="list-title">
               <span>🤵🏻</span>
-              {isGoodWeather === false ? (
-                <p>
-                  Bad weather outside! <br />
-                  Here is what you can do now:
-                </p>
-              ) : (
+              {isGoodWeather ? (
                 <p>
                   The weather is awesome! <br />
                   Go outside and:
+                </p>
+              ) : (
+                <p>
+                  Bad weather outside! <br />
+                  Here is what you can do now:
                 </p>
               )}
             </h2>
@@ -37,7 +36,7 @@ const List = ({ onDeleteActivity, isGoodWeather }) => {
             </ul>
           </>
         ) : (
-          <p>Empty</p>
+          <EmptyActivities isGoodWeather={isGoodWeather} />
         )}
       </div>
     </Section>
