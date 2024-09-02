@@ -7,3 +7,4 @@ export { default as List } from "./List/List";
 export { default as Weather } from "./Weather/Weather";
 export { default as ButtonSubmit } from "./Buttons/ButtonSubmit/ButtonSubmit";
 export { default as ButtonDelete } from "./Buttons/ButtonDelete/ButtonDelete";
+export { default as Tabs } from "./Tabs/Tabs";

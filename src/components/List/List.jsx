@@ -1,9 +1,8 @@
 import { Section, ButtonDelete } from "../";
 import "./List.css";
 
-const List = ({ onDeleteActivity }) => {
+const List = ({ onDeleteActivity, isGoodWeather }) => {
   const activities = JSON.parse(localStorage.getItem("activities"));
-  const isGoodWeather = JSON.parse(localStorage.getItem("isGoodWeather"));
   const filteredActivities = activities.filter(
     (activity) => activity.isForGoodWeather === isGoodWeather
   );
