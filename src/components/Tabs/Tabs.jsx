@@ -1,22 +1,30 @@
 import "./Tabs.css";
+import Europe from "../../../public/europe.jpg";
+import Arctic from "../../../public/arctic.jpg";
+import Sahara from "../../../public/sahara.jpg";
+import Rainforest from "../../../public/rainforest.jpg";
 
 const Tabs = ({ location, setLocation }) => {
   const tabLinks = [
     {
       id: 1,
       name: "Europe",
+      image: Europe,
     },
     {
       id: 2,
       name: "Arctic",
+      image: Arctic,
     },
     {
       id: 3,
       name: "Sahara",
+      image: Sahara,
     },
     {
       id: 4,
       name: "Rainforest",
+      image: Rainforest,
     },
   ];
 
@@ -26,21 +34,18 @@ const Tabs = ({ location, setLocation }) => {
 
   return (
     <ul className="tabs">
-      {tabLinks.map((link) => (
+      {tabLinks.map(({ id, name, image }) => (
         <li
-          key={link.id}
+          key={id}
           onClick={handleLocationChange}
           className={`tab ${
-            location === link.name.toLowerCase() ? "tab--active" : ""
+            location === name.toLowerCase() ? "tab--active" : ""
           }`}
         >
-          {link.name}
+          <img src={image} alt={name} className="tab__image" />
+          <p>{name}</p>
         </li>
       ))}
-      {/* <li className="tab tab--active">Europe</li>
-      <li className="tab">Arctic</li>
-      <li className="tab">Sahara</li>
-      <li className="tab">Rainforest</li> */}
     </ul>
   );
 };
