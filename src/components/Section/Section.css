@@ -17,6 +17,6 @@
 /*MOBIL VERSION*/
 @media screen and (max-width: 767px) {
   .container {
-    max-width: 375px;
+    max-width: 414px;
   }
 }

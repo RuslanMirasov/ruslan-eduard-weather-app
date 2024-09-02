@@ -36,3 +36,11 @@
 .button-delete:after {
   transform: rotate(-45deg) translate(0px, -1px);
 }
+
+/*MOBIL VERSION*/
+@media screen and (max-width: 767px) {
+  .button-delete {
+    width: 20px;
+    height: 20px;
+  }
+}

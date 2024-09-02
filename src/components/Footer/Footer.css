@@ -7,12 +7,19 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  width: 100%;
-  max-width: 700px;
+  width: calc(100% - 40px);
+  max-width: 660px;
   transform: translate(-50%, 0%);
   border-radius: 24px 24px 0px 0px;
   height: 70px;
   margin: 0 auto;
   background: #fff;
   z-index: 10;
+}
+
+/*MOBIL VERSION*/
+@media screen and (max-width: 767px) {
+  .footer {
+    max-width: 374px;
+  }
 }
