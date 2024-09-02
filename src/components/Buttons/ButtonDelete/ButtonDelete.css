@@ -1,0 +1,38 @@
+.button-delete {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  right: 0px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 3;
+  transition: 0.3s;
+  transform: rotate(0deg);
+}
+
+.button-delete:hover {
+  transform: rotate(90deg);
+}
+
+.button-delete:before,
+.button-delete:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.button-delete:before {
+  transform: rotate(45deg) translate(0px, 1px);
+}
+.button-delete:after {
+  transform: rotate(-45deg) translate(0px, -1px);
+}
