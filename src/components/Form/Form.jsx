@@ -21,18 +21,20 @@ const Form = ({ onAddActivity }) => {
       <div className="form-wrapper">
         <h2 className="form-title">Add a new Activity</h2>
         <form onSubmit={handleSubmit} className="form">
-          <label>
+          <label className="label">
             <span>Name:</span>
             <input required type="text" name="name" className="input" />
           </label>
-          <label>
-            <span>Good-weather Activity:</span>
-            <input
-              type="checkbox"
-              name="isForGoodWeather"
-              className="checkbox"
-            />
+          <input
+            type="checkbox"
+            name="isForGoodWeather"
+            id="isForGoodWeather"
+            className="checkbox"
+          />
+          <label className="label" htmlFor="isForGoodWeather">
+            <span>Good-weather Activity</span>
           </label>
+
           <ButtonSubmit>Submit</ButtonSubmit>
         </form>
       </div>

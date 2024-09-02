@@ -1,3 +1,18 @@
 .button-submit {
   display: block;
+  font-weight: 600;
+  font-size: 16px;
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/*MOBIL VERSION*/
+@media screen and (max-width: 767px) {
+  .button-submit {
+    margin-left: 0px;
+  }
 }
