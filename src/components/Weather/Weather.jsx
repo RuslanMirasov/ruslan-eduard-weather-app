@@ -1,35 +1,39 @@
-import { useEffect, useState } from "react";
-import { Section } from "../";
+import useLocalStorageState from "use-local-storage-state";
+import { useEffect } from "react";
+import { Section, Tabs } from "../";
 import "./Weather.css";
 
-const Weather = () => {
-  const [weather, setWeather] = useState({});
+const Weather = ({ setWeather, weather }) => {
+  const [location, setLocation] = useLocalStorageState("location", {
+    defaultValue: "europe",
+  });
+  const { condition, temperature } = weather;
 
   const fetchWeather = async () => {
-    const url = "https://example-apis.vercel.app/api/weather";
-    const response = await fetch(url);
+    const response = await fetch(
+      `https://example-apis.vercel.app/api/weather/${location}`
+    );
     const data = await response.json();
     setWeather(data);
   };
+
   useEffect(() => {
     fetchWeather();
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
       fetchWeather();
     }, 5000);
-    return clearInterval(interval);
-  }, []);
+    return () => clearInterval(timer);
+  }, [location]);
 
   return (
     <Section>
       <div className="weather">
-        <span>{weather.condition}</span>
-        <span>
-          {weather.temperature > 0
-            ? `+${weather.temperature}`
-            : weather.temperature}
-          °C
+        <span className="condition">{condition}</span>
+        <span className="temperature">
+          {temperature > 0 ? `+${temperature}` : temperature}°C
         </span>
       </div>
+      <Tabs location={location} setLocation={setLocation} />
     </Section>
   );
 };

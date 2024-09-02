@@ -1,9 +1,11 @@
-import "./App.css";
-import { Footer, Header, Main, Form, List, Weather } from "./components";
-import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
+import { uid } from "uid";
+import { useState } from "react";
+import { Footer, Header, Main, Form, List, Weather } from "./components";
+import "./App.css";
 
 function App() {
+  const [weather, setWeather] = useState({});
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
@@ -13,16 +15,18 @@ function App() {
   };
 
   const handleDeleteActivity = (id) => {
-    const test = activities.filter((activity) => activity.id !== id);
-    setActivities(test);
+    setActivities(activities.filter((activity) => activity.id !== id));
   };
 
   return (
     <>
       <Header />
       <Main>
-        <Weather />
-        <List onDeleteActivity={handleDeleteActivity} />
+        <Weather setWeather={setWeather} weather={weather} />
+        <List
+          onDeleteActivity={handleDeleteActivity}
+          isGoodWeather={weather.isGoodWeather}
+        />
         <Form onAddActivity={handleAddActivity} />
       </Main>
       <Footer />
