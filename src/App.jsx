@@ -8,13 +8,6 @@ function App() {
     defaultValue: [],
   });
 
-  const [isGoodWeather, setIsGoodWeather] = useLocalStorageState(
-    "isGoodWeather",
-    {
-      defaultValue: false,
-    }
-  );
-
   const handleAddActivity = (newActivity) => {
     setActivities([{ id: uid(), ...newActivity }, ...activities]);
   };
