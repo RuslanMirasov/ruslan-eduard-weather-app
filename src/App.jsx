@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Header />
-      <Main>
+      <Main isGoodWeather={weather.isGoodWeather}>
         <Weather setWeather={setWeather} weather={weather} />
         <List
           onDeleteActivity={handleDeleteActivity}

@@ -3,5 +3,39 @@
   overflow: hidden;
   flex: 1;
   width: 100%;
-  padding: 50px 0px 80px 0px;
+  background: url("../good_weather.jpg") no-repeat center top / cover;
+  background-attachment: fixed;
+  padding: 70px 0px;
+}
+
+.main:before,
+.main:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 0;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.main:before {
+  background: url("../bed_weather.jpg") no-repeat center center / cover;
+  background-attachment: fixed;
+}
+
+.main:after {
+  background: url("../error.jpg") no-repeat center center / cover;
+  background-attachment: fixed;
+}
+
+.main.main--bad:before {
+  opacity: 1;
+}
+
+.main.main--error:after {
+  opacity: 1;
 }
