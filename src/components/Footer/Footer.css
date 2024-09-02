@@ -1,3 +1,18 @@
 .footer {
-  display: block;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  max-width: 700px;
+  transform: translate(-50%, 0%);
+  border-radius: 24px 24px 0px 0px;
+  height: 70px;
+  margin: 0 auto;
+  background: #fff;
+  z-index: 10;
 }
