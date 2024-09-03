@@ -3,7 +3,8 @@ import './List.css';
 
 const List = ({ onDeleteActivity, isError, isGoodWeather }) => {
   const activities = JSON.parse(localStorage.getItem('activities'));
-  const filteredActivities = activities.filter(activity => activity.isForGoodWeather === isGoodWeather);
+  const location = JSON.parse(localStorage.getItem('location'));
+  const filteredActivities = activities.filter(activity => activity.isForGoodWeather === isGoodWeather && activity.category === location);
 
   return (
     <Section>
