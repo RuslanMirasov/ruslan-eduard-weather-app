@@ -1,11 +1,9 @@
-import { Section, ButtonDelete, EmptyActivities } from "../";
-import "./List.css";
+import { Section, ButtonDelete, EmptyActivities } from '../';
+import './List.css';
 
 const List = ({ onDeleteActivity, isError, isGoodWeather }) => {
-  const activities = JSON.parse(localStorage.getItem("activities"));
-  const filteredActivities = activities.filter(
-    (activity) => activity.isForGoodWeather === isGoodWeather
-  );
+  const activities = JSON.parse(localStorage.getItem('activities'));
+  const filteredActivities = activities.filter(activity => activity.isForGoodWeather === isGoodWeather);
 
   return (
     <Section>
@@ -30,7 +28,7 @@ const List = ({ onDeleteActivity, isError, isGoodWeather }) => {
               {filteredActivities.map(({ id, name }) => (
                 <li key={id} className="list__item">
                   <p>{name}</p>
-                  <ButtonDelete onDeleteActivity={onDeleteActivity} id={id} />
+                  <ButtonDelete onClick={() => onDeleteActivity(id)} />
                 </li>
               ))}
             </ul>
