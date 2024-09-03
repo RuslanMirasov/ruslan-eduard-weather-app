@@ -1,13 +1,7 @@
-import "./ButtonDelete.css";
+import './ButtonDelete.css';
 
-const ButtonDelete = ({ onDeleteActivity, id }) => {
-  return (
-    <button
-      type="button"
-      className="button-delete"
-      onClick={() => onDeleteActivity(id)}
-    ></button>
-  );
+const ButtonDelete = ({ onClick }) => {
+  return <button type="button" className="button-delete" onClick={onClick}></button>;
 };
 
 export default ButtonDelete;

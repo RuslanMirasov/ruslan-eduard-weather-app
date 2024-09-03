@@ -17,9 +17,23 @@
   z-index: 10;
 }
 
+.footer p {
+  display: block;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 700;
+  color: #14699b;
+  position: relative;
+  top: -2px;
+}
+
 /*MOBIL VERSION*/
 @media screen and (max-width: 767px) {
   .footer {
     max-width: 374px;
+  }
+  .footer p {
+    font-size: 16px;
+    top: -1px;
   }
 }

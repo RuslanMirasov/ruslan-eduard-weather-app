@@ -1,29 +1,25 @@
-import useLocalStorageState from "use-local-storage-state";
-import { useEffect } from "react";
-import { Section, Tabs } from "../";
-import "./Weather.css";
-import { useState } from "react";
+import useLocalStorageState from 'use-local-storage-state';
+import { useEffect } from 'react';
+import { Section, Tabs } from '../';
+import './Weather.css';
+import { useState } from 'react';
 
 const Weather = ({ setWeather, weather, isError, setIsError }) => {
   const [isLoading, setIsloading] = useState(true);
 
-  const [location, setLocation] = useLocalStorageState("location", {
-    defaultValue: "europe",
-  });
+  const [location, setLocation] = useLocalStorageState('location', { defaultValue: 'europe' });
   const { condition, temperature } = weather;
 
-  const addError = (status) => {
+  const addError = status => {
     setIsError({
-      image: "🚨",
-      text: status,
+      image: '🚨',
+      status: status,
     });
   };
 
   const fetchWeather = async () => {
     try {
-      const response = await fetch(
-        `https://example-apis.vercel.app/api/weather/${location}`
-      );
+      const response = await fetch(`https://example-apis.vercel.app/api/weather/${location}`);
       if (!response.ok) {
         addError(response.status);
         return;
@@ -53,22 +49,12 @@ const Weather = ({ setWeather, weather, isError, setIsError }) => {
         <div className="loading"></div>
       ) : (
         <div className="weather">
-          <span className="condition">
-            {isError ? isError.image : condition}
-          </span>
-          <span className="temperature">
-            {isError
-              ? isError.text
-              : `${temperature > 0 ? "+" : ""}${temperature}°C`}
-          </span>
+          <span className="condition">{isError ? isError.image : condition}</span>
+          <span className="temperature">{isError ? isError.status : `${temperature > 0 ? '+' : ''}${temperature}°C`}</span>
         </div>
       )}
 
-      <Tabs
-        location={location}
-        setLocation={setLocation}
-        setIsloading={setIsloading}
-      />
+      <Tabs location={location} setLocation={setLocation} setIsloading={setIsloading} />
     </Section>
   );
 };
