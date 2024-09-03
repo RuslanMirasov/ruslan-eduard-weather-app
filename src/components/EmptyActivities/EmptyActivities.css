@@ -39,7 +39,7 @@
 }
 
 .empty-activities__title span {
-  display: inline-block;
+  display: inline;
   color: var(--blue-color);
 }
 
