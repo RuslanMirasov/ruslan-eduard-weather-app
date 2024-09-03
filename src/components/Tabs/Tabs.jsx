@@ -4,7 +4,7 @@ import Arctic from "../../../public/arctic.jpg";
 import Sahara from "../../../public/sahara.jpg";
 import Rainforest from "../../../public/rainforest.jpg";
 
-const Tabs = ({ location, setLocation }) => {
+const Tabs = ({ location, setLocation, setIsloading }) => {
   const tabLinks = [
     {
       id: 1,
@@ -29,6 +29,7 @@ const Tabs = ({ location, setLocation }) => {
   ];
 
   const handleLocationChange = (e) => {
+    setIsloading(true);
     setLocation(e.target.textContent.toLowerCase());
   };
 

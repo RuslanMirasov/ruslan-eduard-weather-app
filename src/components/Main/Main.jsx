@@ -1,8 +1,12 @@
 import "./Main.css";
 
-const Main = ({ isGoodWeather, children }) => {
+const Main = ({ isGoodWeather, isError, children }) => {
   return (
-    <main className={`main ${!isGoodWeather ? "main--bad" : ""}`}>
+    <main
+      className={`main ${!isGoodWeather ? "main--bad" : ""} ${
+        isError ? "main--error" : ""
+      }`}
+    >
       {children}
     </main>
   );

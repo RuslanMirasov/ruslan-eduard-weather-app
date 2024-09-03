@@ -1,7 +1,7 @@
 import { Section, ButtonDelete, EmptyActivities } from "../";
 import "./List.css";
 
-const List = ({ onDeleteActivity, isGoodWeather }) => {
+const List = ({ onDeleteActivity, isError, isGoodWeather }) => {
   const activities = JSON.parse(localStorage.getItem("activities"));
   const filteredActivities = activities.filter(
     (activity) => activity.isForGoodWeather === isGoodWeather
@@ -10,7 +10,7 @@ const List = ({ onDeleteActivity, isGoodWeather }) => {
   return (
     <Section>
       <div className="list-wrapper">
-        {filteredActivities.length > 0 ? (
+        {!isError && filteredActivities.length > 0 ? (
           <>
             <h2 className="list-title">
               <span>🤵🏻</span>
@@ -36,7 +36,7 @@ const List = ({ onDeleteActivity, isGoodWeather }) => {
             </ul>
           </>
         ) : (
-          <EmptyActivities isGoodWeather={isGoodWeather} />
+          <EmptyActivities isGoodWeather={isGoodWeather} isError={isError} />
         )}
       </div>
     </Section>

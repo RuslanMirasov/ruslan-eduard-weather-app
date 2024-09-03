@@ -9,6 +9,7 @@ function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
+  const [isError, setIsError] = useState(null);
 
   const handleAddActivity = (newActivity) => {
     setActivities([{ id: uid(), ...newActivity }, ...activities]);
@@ -21,13 +22,20 @@ function App() {
   return (
     <>
       <Header />
-      <Main isGoodWeather={weather.isGoodWeather}>
-        <Weather setWeather={setWeather} weather={weather} />
+      <Main isGoodWeather={weather.isGoodWeather} isError={isError}>
+        <Weather
+          weather={weather}
+          isError={isError}
+          setWeather={setWeather}
+          setIsError={setIsError}
+        />
         <List
           onDeleteActivity={handleDeleteActivity}
           isGoodWeather={weather.isGoodWeather}
+          isError={isError}
         />
-        <Form onAddActivity={handleAddActivity} />
+
+        {!isError && <Form onAddActivity={handleAddActivity} />}
       </Main>
       <Footer />
     </>
