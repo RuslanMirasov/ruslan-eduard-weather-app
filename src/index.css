@@ -1,7 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --white-color: #fff;
+  --black-color: #000;
+  --primary-color: #5c9db7;
+  --blue-color: #14699b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

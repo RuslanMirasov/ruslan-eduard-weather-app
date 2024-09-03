@@ -13,7 +13,7 @@
   height: 70px;
   margin: 0 auto;
   border-radius: 0px 0px 40px 40px;
-  background: #fff;
+  background: var(--white-color);
   z-index: 10;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .header__title span {
-  font-family: "Noto Color Emoji", sans-serif;
+  font-family: 'Noto Color Emoji', sans-serif;
   font-weight: 400;
   font-size: 50px;
   font-style: normal;
@@ -38,7 +38,7 @@
   font-size: 28px;
   line-height: 1;
   font-weight: 700;
-  color: #14699b;
+  color: var(--blue-color);
   position: relative;
   top: -3px;
 }
